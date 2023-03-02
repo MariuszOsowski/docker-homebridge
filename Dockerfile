@@ -75,4 +75,6 @@ EXPOSE 8581/tcp
 VOLUME /homebridge
 WORKDIR /homebridge
 
-ENTRYPOINT [ "/init" ]
+COPY entry.sh /scripts/entry.sh
+RUN ["chmod", "+x", "/scripts/entry.sh"]
+ENTRYPOINT ["/scripts/entry.sh"]
